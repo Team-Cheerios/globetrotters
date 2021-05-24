@@ -1,0 +1,11 @@
+path:hover {
+  fill: lightskyblue;
+}
+
+.countryRed {
+  fill: red;
+}
+
+.countryRed:hover {
+  fill: rgb(253, 90, 90);
+}
