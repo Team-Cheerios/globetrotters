@@ -1,8 +1,27 @@
-# globetrotters
+# Globetrotters
 An educational game where a user can learn geografical locations of European countries.
 
-## Wireframes
+# Contributors
+- Joshua Haddock
+- Dasean Volk
+- Clarissa Pamonicutt
+- Dave Arno
+- Ayrat Gimranov
 
+___
+
+# Wireframes
+
+## Home Page
+![Home](./images/Wireframes/Home.png)
+## Game Page 1.0
+![Game Blank](./images/Wireframes/Gameblank.png)
+## Game Page 2.0
+![Game](./images/Wireframes/Game.png)
+## About Us Page
+![About Us](./images/Wireframes/aboutus.png)
+
+Color themes may vary.
 
 
 ## User Stories
