@@ -3,42 +3,63 @@
 const userForm = document.getElementById('userForm');
 const pElem = document.getElementById('introduction');
 const buttonElem = document.getElementById('clickHere');
-let submitButton;
+const formElem = document.createElement('form');
+const labelElem = document.createElement('label');
+const inputElem = document.createElement('input');
+const submit = document.createElement('input');
+
 
 // --------------------------------------------- Constructor Functions -------------------------------------------------------//
 
+const User = function(name) {
+  this.name = name;
+  this.score = 0;
+}
+
 // --------------------------------------------- Prototype Methods -------------------------------------------------------//
 
+
 // --------------------------------------------- Regular Functions -------------------------------------------------------//
+
+function renderForm() {
+  userForm.appendChild(formElem);
+
+  labelElem.setAttribute('for', 'username');
+  labelElem.innerText = "Name";
+  formElem.appendChild(labelElem);
+
+  inputElem.setAttribute('id', 'username');
+  inputElem.setAttribute('type', 'text');
+  formElem.appendChild(inputElem);
+
+  submit.setAttribute('type', 'submit');
+  submit.setAttribute('value', 'Start Game');
+  formElem.appendChild(submit);
+}
 
 function handleClick(event) {
   pElem.style.display = 'none';
   buttonElem.style.display = 'none';
-  const formElem = document.createElement('form');
-  userForm.appendChild(formElem);
-  const labelElem = document.createElement('label');
-  labelElem.setAttribute('for', 'username');
-  labelElem.innerText = "Name";
-  formElem.appendChild(labelElem);
-  const inputElem = document.createElement('input');
-  inputElem.setAttribute('id', 'username');
-  inputElem.setAttribute('type', 'text');
-  formElem.appendChild(inputElem);
-  const submit = document.createElement('input');
-  submit.setAttribute('type', 'submit');
-  submit.setAttribute('value', 'Start Game');
-  formElem.appendChild(submit);
-  submitButton = submit;
+  renderForm();
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(submitButton.value);
+  if(inputElem.value) {
+    const newUser = new User(inputElem.value);
+    console.log(newUser);
+    updateStorageData(newUser);
+  }
+}
+
+function updateStorageData(user) {
+  const stringifiedUser = JSON.stringify(user);
+  localStorage.setItem('user', stringifiedUser)
 }
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 
 buttonElem.addEventListener('click', handleClick);
-submitButton.addEventListener('click', handleSubmit);
+submit.addEventListener('click', handleSubmit);
 // --------------------------------------------- Functions Calls -------------------------------------------------------//
 
 
@@ -62,11 +83,11 @@ submitButton.addEventListener('click', handleSubmit);
 
 //[DONE] user is asked to input their username into the form.
 
-//[TODO] if user inputs nothing and clicks submit, they are reprompted.
-  // [TODO] create event listeners for submit button.
-    // [TODO] if user name = null, nothing happens
+//[DONE] if user inputs nothing and clicks submit, they are reprompted.
+  // [DONE] create event listeners for submit button.
+    // [DONE] if user name = null, nothing happens
 
-//if user inputs a name and clicks submit, create object(user), which will later receive the properties of .score/.pass/etc. 
+//[DONE] if user inputs a name and clicks submit, create object(user), which will later receive the properties of .score/.pass/etc.
 
 
 //Store object in local storage.
