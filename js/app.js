@@ -2,17 +2,28 @@
 
 let pathElem = document.getElementsByTagName('path');
 
+let currentCountry;
+let score = 0;
+
 for (let i = 0; i < pathElem.length; i++){
 
   pathElem[i].addEventListener('click', handleEvent);
 
   function handleEvent(event){
+
     if (pathElem[i].id == currentCountry.id) {
       score += currentCountry.guesses;
+      pathElem[i].removeEventListener('click', handleEvent);
       // pickCountry();
+    } else if (currentCountry.guesses ===0) {
+      let j = getCountryId(currentCountry.id);          
+      pathElem[j].removeEventListener('click', handleEvent);
+      pathElem[j].setAttribute('class', 'countryRed');
     } else {
       currentCountry.guesses--;
     }
+
+    
       
 
     if (pathElem[i].hasAttribute('class')){
@@ -24,6 +35,14 @@ for (let i = 0; i < pathElem.length; i++){
 }
 
 
+function getCountryId(value) {
+  for (let i=0; i<pathElem.length; i++) {
+    if (pathElem[i].id == value) {
+      return i;
+    }
+  }
+}
+
 
 function Country(name, id, image) {
   this.name = name;
@@ -32,9 +51,7 @@ function Country(name, id, image) {
   this.guesses = 3;
 }
 
-let currentCountry;
-let score = 0;
-let guesses;
+
 
 function newCountry(name, id, image) {
   let country = new Country(name, id, image);
