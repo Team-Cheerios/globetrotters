@@ -1,3 +1,23 @@
+/* HEADER PAGE */
+header {
+  width: 100%;
+  background: blue;
+}
+
+h2 {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* ABOUT ME PAGE */
 #authors * {
   box-sizing: border-box;
 }

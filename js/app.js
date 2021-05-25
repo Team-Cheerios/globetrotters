@@ -7,13 +7,13 @@ for (let i = 0; i < pathElem.length; i++){
   pathElem[i].addEventListener('click', handleEvent);
 
   function handleEvent(event){
+    if pathElem[i].name == currentCountry
 
     if (pathElem[i].hasAttribute('class')){
       pathElem[i].removeAttribute('class');
     } else {
       pathElem[i].setAttribute('class', 'countryRed');
     }
-
   }
 }
 
@@ -23,17 +23,21 @@ function Country(name,image) {
   this.guesses = 3;
 }
 
+let currentCountry;
 let score = 0;
 
 function newCountry(name, image) {
-  Country(name,image);
+  let country = new Country(name, image);
 
-  Country.allCountries.push(this);
+  Country.allCountries.push(country);
 }
 
 Country.allCountries = [];
 
-
+function pickCountry() {
+  let i = Math.floor(Math.random()*Country.allCountries.length)-1;
+  currentCountry = Country.allCountries[i];
+}
 
 newCountry('Albania', './images/Flags/albania.png');
 newCountry('Armenia', './images/Flags/armenia.png');
@@ -78,7 +82,3 @@ newCountry('Spain', './images/Flags/spain.png');
 newCountry('France', './images/Flags/france.png');
 newCountry('Portugal', './images/Flags/portugal.png');
 newCountry('Cyprus', './images/Flags/cyprus.png');
-
-
-
-
