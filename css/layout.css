@@ -1,0 +1,64 @@
+#authors * {
+  box-sizing: border-box;
+}
+
+#authors {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgb(89, 228, 175), rgb(27, 124, 97));
+  border-radius: 20px;
+  line-height: 1.2em;
+}
+
+#aboutUsH1 {  
+  text-align: center;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+    
+}
+
+.profilePic {
+  width: 20%;
+  object-fit: contain;
+  /* padding: 1em; */
+  margin: 1em;
+  border: solid rgb(255, 255, 255) 2px;
+  border-radius: 50%;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  margin: 2em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+.description ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  padding: 1em;
+}
+
+.authorName {
+  width: 15%;
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1em;
+  line-height: 1.2em;
+}
+
+.bio {
+  width: 80%;
+  padding: 1em;
+}
