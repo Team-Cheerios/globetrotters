@@ -1,15 +1,18 @@
 'use strict';
 
 let pathElem = document.getElementsByTagName('path');
-
+console.log(pathElem);
 let currentCountry;
 let score = 0;
 
-for (let i = 0; i < pathElem.length; i++){
+function handleEvent(event){
 
-  pathElem[i].addEventListener('click', handleEvent);
+   let target = event.target;
 
-  function handleEvent(event){
+// get user's guess via event, that's our target
+// if the user's guess a.k.a. the target is equal to the correct answer, then we will loop through all of the paths looking for the one that matches currentCountry, and then turn that listener off.
+
+  /* for (let i = 0; i < pathElem.length; i++) {
 
     if (pathElem[i].id == currentCountry.id) {
       score += currentCountry.guesses;
@@ -23,17 +26,30 @@ for (let i = 0; i < pathElem.length; i++){
       currentCountry.guesses--;
     }
 
-    
-      
-
     if (pathElem[i].hasAttribute('class')){
       pathElem[i].removeAttribute('class');
     } else {
       pathElem[i].setAttribute('class', 'countryRed');
     }
+  } */
+  for (let i = 0; i < pathElem.length; i++){
+    if (pathElem[i].id === currentCountry.id ){
+      pathElem[i].setAttribute('class', 'countryRed');
+      pathElem[i].removeEventListener('click', handleEvent);
+      score += currentCountry.guesses;
+      currentCountry.guesses = 0;
+      
+    } 
+  }
+  if (currentCountry.guesses === 0){
+    pickCountry();
   }
 }
 
+for (let i = 0; i < pathElem.length; i++){
+
+  pathElem[i].addEventListener('click', handleEvent);
+}
 
 function getCountryId(value) {
   for (let i=0; i<pathElem.length; i++) {
@@ -43,15 +59,12 @@ function getCountryId(value) {
   }
 }
 
-
 function Country(name, id, image) {
   this.name = name;
   this.id = id;
   this.image = image;
   this.guesses = 3;
 }
-
-
 
 function newCountry(name, id, image) {
   let country = new Country(name, id, image);
@@ -63,13 +76,13 @@ Country.allCountries = [];
 Country.pickedCountries = [];
 
 function pickCountry() {
-  let i = Math.floor(Math.random()*Country.allCountries.length);
-  currentCountry = Country.allCountries[i];
-  console.log(i);
+  let k = Math.floor(Math.random()*Country.allCountries.length);
+  currentCountry = Country.allCountries[k];
+  console.log(k);
   while (Country.pickedCountries.includes(currentCountry.name)) {
-    i = Math.floor(Math.random()*Country.allCountries.length);
-    currentCountry = Country.allCountries[i];
-    console.log(i);
+    k = Math.floor(Math.random()*Country.allCountries.length);
+    currentCountry = Country.allCountries[k];
+    console.log(k);
   }
   console.log(currentCountry.name);
   Country.pickedCountries.push(currentCountry.name);
@@ -117,3 +130,5 @@ newCountry('Netherlands', 'NL', './images/Flags/netherlands.png');
 newCountry('Spain', 'ES', './images/Flags/spain.png');
 newCountry('France', 'FR', './images/Flags/france.png');
 newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
+
+pickCountry();
