@@ -1,3 +1,9 @@
 html {
-  background: linear-gradient(to left, black,rgb(56, 55, 55));
+  background: rgb(24, 23, 23);
+ 
+}
+
+main {
+  background: linear-gradient(to left,rgb(60,60,226),rgb(0, 0, 0));
+  color: white;
 }
