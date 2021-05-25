@@ -1,12 +1,36 @@
-/* HEADER PAGE */
+/* HEADER HOME PAGE */
 header {
   width: 100%;
-  background: blue;
+  background: rgb(60, 60, 226);
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-h2 {
-  text-align: center;
+header ul {
+  display: inline;
+  float: right;
+  margin-right: 300px;
+  z-index: 4;
 }
+
+h1, h2 {
+  display: grid;
+  justify-content: center;
+}
+
+header h1 {
+  padding-top: 15px;
+  font-size: 5em;
+  font-family: 'Odibee Sans', cursive;
+}
+
+li a {
+  border: 2px solid black;
+  margin: 5px;
+  display: block;
+}
+
+
 
 
 
@@ -44,11 +68,11 @@ h2 {
 }
 
 .profilePic {
-  width: 20%;
+  width: 15%;
   object-fit: contain;
   /* padding: 1em; */
   margin: 1em;
-  border: solid rgb(255, 255, 255) 2px;
+  /* border: solid rgb(255, 255, 255) 2px; */
   border-radius: 50%;
 }
 
