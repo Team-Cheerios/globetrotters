@@ -25,6 +25,16 @@ function Country(name,image) {
 
 let score = 0;
 
+function newCountry(name, image) {
+  Country(name,image);
+
+  Country.allCountries.push(this);
+}
+
+Country.allCountries = [];
+
+
+
 new Country('Albania', 'images/Flags/albania.png');
 new Country('Armenia', 'images/Flags/armenia.png');
 new Country('Austria', 'images/Flags/austria.png');
