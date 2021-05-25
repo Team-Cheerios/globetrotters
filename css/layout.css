@@ -1,3 +1,44 @@
+/* HOME PAGE GRID */
+main {
+  display: grid;
+  grid-template-columns: 200px 600px 200px ;
+  grid-template-rows: 3fr 2fr .2fr;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#first {
+  display: grid;
+  justify-items: center;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+#gridone img {
+  position: relative;
+  width: 600px;
+  
+}
+#second {
+  display: grid;
+  justify-items: center;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+footer {
+  display: grid;
+  justify-items: center;
+  align-self: end;
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+}
+
+
+
+
+
+
+
 /* HEADER HOME PAGE */
 header {
   width: 100%;
@@ -29,14 +70,6 @@ li a {
   margin: 5px;
   display: block;
 }
-
-
-
-
-
-
-
-
 
 
 

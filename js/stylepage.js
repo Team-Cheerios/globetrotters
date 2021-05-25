@@ -10,6 +10,9 @@ const h2Elem = document.createElement('h2');
 h2Elem.textContent = 'A Guessing Game';
 header.appendChild(h2Elem);
 
+const div = document.createElement('div')
+header.appendChild(div);
+
 const ul = document.createElement('ul');
 header.appendChild(ul);
 
