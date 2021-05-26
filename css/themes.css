@@ -1,9 +1,13 @@
+
+html {
+ background: rgb(0, 0, 0);
+}
+
 body {
   background: rgb(24, 23, 23);
- 
 }
 
 main {
-  background: linear-gradient(to left,rgb(60,60,226),rgb(0, 0, 0));
+  background: radial-gradient(rgb(60,60,226),rgb(0, 0, 0));
   color: white;
 }
