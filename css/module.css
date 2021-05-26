@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+header h2 {
+  color: rgb(89, 228, 175);
+}
+
 #gridone {
   z-index: 3;
   display: grid;
@@ -16,9 +20,12 @@
 
 
 #introduction {
+  position: relative;
   border: 2px solid black;
   margin: 20px;
   padding: 10px;
   background-color: black;
+  z-index: 5;
+ 
 
 }
