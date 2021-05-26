@@ -10,9 +10,15 @@
 
 #gridone {
   z-index: 3;
+  display: grid;
+  align-self: flex-end;
 }
 
 
 #introduction {
   border: 2px solid black;
+  margin: 20px;
+  padding: 10px;
+  background-color: black;
+
 }
