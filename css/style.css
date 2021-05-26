@@ -25,9 +25,13 @@
 }
 
 #svg {
-  height: 958px;
-  width: 1400px;  
+  /* height: 958px; */
+  width: 100%;
 } 
+
+#gameMap {
+  width: 100%;
+}
 
 #questionBox {
   display: flex;
@@ -37,13 +41,15 @@
   background-color: white;
   position: fixed;
   top: 10vw;
-  right: 0;
+  right: 1vw;
   font-size:calc(12px + 1.5vw);
   border: 0.05em solid black;
   min-width: 100px;
   min-height: 50px;
   width: 20vw;
   padding: 0.2em;
+  /* margin-right: 50px; */
+  border-radius: 5px;
 }
 
 .flagImg {
@@ -51,6 +57,18 @@
   width: 30%;
   object-fit: contain;
   border: 0.1em solid cadetblue;
+}
+
+#guesser h2{
+  font-size: 3em;
+  /* border: solid black 3px; */
+}
+
+#headerDiv {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 60%;
 }
 
   /* Scoreboard */
@@ -65,3 +83,4 @@
   h3 {
     color: pink;
   }
+
