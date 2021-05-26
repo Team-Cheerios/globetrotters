@@ -37,4 +37,4 @@ aboutLink.setAttribute('href', 'about.html');
 aboutLink.textContent = 'About';
 liAbout.appendChild(aboutLink);
 
-const scorebox = document.getElementById('scorebox');
+// const scorebox = document.getElementById('scorebox');

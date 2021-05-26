@@ -48,7 +48,7 @@ function handleSubmit(event) {
     const newUser = new User(inputElem.value);
     console.log(newUser);
     updateStorageData(newUser);
-    window.location.href = "./game.html";
+    window.location.href = './game.html';
   }
 }
 
