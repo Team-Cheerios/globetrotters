@@ -16,6 +16,10 @@
   fill: lightskyblue;
 }
 
+.coutryYellow {
+  fill: rgb(237, 234, 19);
+}
+
 .countryGreen {
   fill: rgb(77, 209, 77);
 }
