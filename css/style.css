@@ -52,3 +52,16 @@
   object-fit: contain;
   border: 0.1em solid cadetblue;
 }
+
+  /* Scoreboard */
+  #scoreboard {
+    width: 10%;
+    height: 30%;
+    border: 10px pink;
+    border-radius: 10px;
+    float: left;
+  }
+  
+  h3 {
+    color: pink;
+  }
