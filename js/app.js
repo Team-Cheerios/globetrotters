@@ -3,6 +3,7 @@
 let pathElem = document.getElementsByTagName('path');
 let currentCountry;
 const questionBox = document.getElementById('questionBox');
+const leaderboardDiv = document.getElementById('scorebox');
 let score = 0;
 let music = new Audio('./sound/music.mp3');
 let currentUser;
@@ -84,6 +85,13 @@ function handleEvent(event){
   pickCountry();
 }
 
+function renderLeaderboard() {
+  const userScore = document.createElement('p');
+  userScore.textContent = currentUser.score;
+  leaderboardDiv.appendChild(userScore);
+}
+
+
 // load current user, show current score, 
 function loadUser() {
   let newUser = localStorage.getItem('user');
@@ -98,9 +106,22 @@ function saveUser() {
   localStorage.setItem('leaderboard', stringifiedUsers);
 }
 
-// function loadLeaderboard() {
-//   let newLeaderboard = localStorage.getItem('leaderboard');
-// }
+function loadLeaderboard() {
+  let newLeaderboard = localStorage.getItem('leaderboard');
+  if (newLeaderboard) {
+    let parsedLeaderboard = JSON.parse(newLeaderboard);
+    // for (let user of parsedLeaderboard) {
+    //   new User(user.name, user.score);
+    //   User.leaderboard.push(user)
+    //   console.log(user);
+    // } 
+    for (let user of parsedLeaderboard) {
+      const newUser = new User(user.name, user.score);
+        User.leaderboard.push(newUser);
+        console.log(newUser);
+    }
+  }
+}
 
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 for (let i = 0; i < pathElem.length; i++){
@@ -110,6 +131,8 @@ for (let i = 0; i < pathElem.length; i++){
 // --------------------------------------------- Functions Calls -------------------------------------------------------//
 music.play();
 music.volume = 0.5;
+music.loop = true
+music.muted = false
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
@@ -154,6 +177,7 @@ newCountry('Spain', 'ES', './images/Flags/spain.png');
 newCountry('France', 'FR', './images/Flags/france.png');
 newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
 
+loadLeaderboard();
 loadUser();
 pickCountry();
 /* function getCountryId(value) {
