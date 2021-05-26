@@ -15,15 +15,15 @@ function Country(name, id, image) {
   this.guesses = 3;
 }
 
-function User(name) {
+function User(name, score) {
   this.name = name;
-  this.score = 0;
-
+  this.score = score;
 }
 
 // --------------------------------------------- Prototype Methods -------------------------------------------------------//
 Country.allCountries = [];
 Country.pickedCountries = [];
+User.leaderboard = [];
 
 // --------------------------------------------- Regular Functions -------------------------------------------------------//
 function newCountry(name, id, image) {
@@ -55,7 +55,8 @@ function pickCountry() {
 
     Country.pickedCountries.push(currentCountry.name);
   } else {
-    countryH2Elem.textContent = `No more countries left to guess! You guessed ${score} countries out of ${Country.allCountries.length}`;
+    countryH2Elem.textContent = `No more countries left to guess! You guessed ${currentUser.score} countries out of ${Country.allCountries.length}`;
+    saveUser();
     music.pause();
   }
 }
@@ -65,8 +66,8 @@ function handleEvent(event){
   if (target.id === currentCountry.id){
     target.setAttribute('class', 'countryGreen');
     target.removeEventListener('click', handleEvent);
-    score++;
-    console.log(score);
+    currentUser.score++;
+    console.log(currentUser.score);
     let audioCorrect = new Audio('./sound/correct.wav');
     audioCorrect.play();
   } else if (target.id !== currentCountry.id){
@@ -74,7 +75,7 @@ function handleEvent(event){
       if (currentCountry.id === pathElem[k].id){
         pathElem[k].setAttribute('class', 'countryRed');
         pathElem[k].removeEventListener('click', handleEvent);
-        console.log(score);
+        console.log(currentUser.score);
         let audioWrong = new Audio('./sound/wrong.mp3');
         audioWrong.play();
       }
@@ -87,9 +88,19 @@ function handleEvent(event){
 function loadUser() {
   let newUser = localStorage.getItem('user');
   let parsedUser = JSON.parse(newUser);
-  currentUser = new User(parsedUser);
+  currentUser = new User(parsedUser.name, 0);
   console.log(currentUser);
+  User.leaderboard.push(currentUser);
 }
+
+function saveUser() {
+  const stringifiedUsers = JSON.stringify(User.leaderboard);
+  localStorage.setItem('leaderboard', stringifiedUsers);
+}
+
+// function loadLeaderboard() {
+//   let newLeaderboard = localStorage.getItem('leaderboard');
+// }
 
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 for (let i = 0; i < pathElem.length; i++){
@@ -152,3 +163,11 @@ pickCountry();
     }
   }
 } */
+
+// DONE: make user array, new user finishes round goes into another string
+//save to a new key after users complete the game
+  //DONE:create empty array
+  //DONE:when user object is created it is pushed into the array
+  // when game is finished, array of user objects is stringified and saved to local storage
+  //update leaderboard with array objects
+//load user object array key before starting the game
