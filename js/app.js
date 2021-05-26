@@ -1,40 +1,13 @@
 'use strict';
-
+// --------------------------------------------- Global Variables -------------------------------------------------------//
 let pathElem = document.getElementsByTagName('path');
 let currentCountry;
 const questionBox = document.getElementById('questionBox');
 let score = 0;
 let music = new Audio('./sound/music.mp3');
-music.play();
-music.volume = 0.5;
 
-function handleEvent(event){
-  let target = event.target;
-  if (target.id === currentCountry.id){
-    target.setAttribute('class', 'countryGreen');
-    target.removeEventListener('click', handleEvent);
-    score++;
-    console.log(score);
-    let audioCorrect = new Audio('./sound/correct.wav');
-    audioCorrect.play();
-  } else if (target.id !== currentCountry.id){
-    for (let k = 0; k < pathElem.length; k++){
-      if (currentCountry.id === pathElem[k].id){
-        pathElem[k].setAttribute('class', 'countryRed');
-        pathElem[k].removeEventListener('click', handleEvent);
-        console.log(score);
-        let audioWrong = new Audio('./sound/wrong.mp3');
-        audioWrong.play();
-      }
-    }
-  }
-  pickCountry();
-}
 
-for (let i = 0; i < pathElem.length; i++){
-  pathElem[i].addEventListener('click', handleEvent);
-}
-
+// --------------------------------------------- Constructor Functions -------------------------------------------------------//
 function Country(name, id, image) {
   this.name = name;
   this.id = id;
@@ -42,13 +15,15 @@ function Country(name, id, image) {
   this.guesses = 3;
 }
 
+// --------------------------------------------- Prototype Methods -------------------------------------------------------//
+Country.allCountries = [];
+Country.pickedCountries = [];
+
+// --------------------------------------------- Regular Functions -------------------------------------------------------//
 function newCountry(name, id, image) {
   let country = new Country(name, id, image);
   Country.allCountries.push(country);
 }
-
-Country.allCountries = [];
-Country.pickedCountries = [];
 
 function pickCountry() {
 
@@ -78,6 +53,38 @@ function pickCountry() {
     music.pause();
   }
 }
+
+function handleEvent(event){
+  let target = event.target;
+  if (target.id === currentCountry.id){
+    target.setAttribute('class', 'countryGreen');
+    target.removeEventListener('click', handleEvent);
+    score++;
+    console.log(score);
+    let audioCorrect = new Audio('./sound/correct.wav');
+    audioCorrect.play();
+  } else if (target.id !== currentCountry.id){
+    for (let k = 0; k < pathElem.length; k++){
+      if (currentCountry.id === pathElem[k].id){
+        pathElem[k].setAttribute('class', 'countryRed');
+        pathElem[k].removeEventListener('click', handleEvent);
+        console.log(score);
+        let audioWrong = new Audio('./sound/wrong.mp3');
+        audioWrong.play();
+      }
+    }
+  }
+  pickCountry();
+}
+
+// --------------------------------------------- Event Listeners -------------------------------------------------------//
+for (let i = 0; i < pathElem.length; i++){
+  pathElem[i].addEventListener('click', handleEvent);
+}
+
+// --------------------------------------------- Functions Calls -------------------------------------------------------//
+music.play();
+music.volume = 0.5;
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
