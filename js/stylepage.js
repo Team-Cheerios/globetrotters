@@ -2,9 +2,16 @@
 
 const header = document.getElementsByTagName('header')[0];
 
+const globeImgElem = document.createElement('img');
+header.appendChild(globeImgElem);
+globeImgElem.setAttribute('src', './images/globe.gif');
+globeImgElem.setAttribute('id', 'globeImg');
+
 const headerDivElem = document.createElement('div');
 header.appendChild(headerDivElem);
 headerDivElem.setAttribute('id', 'headerDiv');
+
+
 
 const h1Elem = document.createElement('h1');
 h1Elem.textContent = 'GlobeTrotters';
