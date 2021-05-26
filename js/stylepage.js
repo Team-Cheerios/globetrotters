@@ -2,13 +2,17 @@
 
 const header = document.getElementsByTagName('header')[0];
 
+const headerDivElem = document.createElement('div');
+header.appendChild(headerDivElem);
+headerDivElem.setAttribute('id', 'headerDiv');
+
 const h1Elem = document.createElement('h1');
 h1Elem.textContent = 'GlobeTrotters';
-header.appendChild(h1Elem);
+headerDivElem.appendChild(h1Elem);
 
 const h2Elem = document.createElement('h2');
 h2Elem.textContent = 'A Guessing Game';
-header.appendChild(h2Elem);
+headerDivElem.appendChild(h2Elem);
 
 const ul = document.createElement('ul');
 header.appendChild(ul);
