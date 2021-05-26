@@ -1,40 +1,13 @@
 'use strict';
-
+// --------------------------------------------- Global Variables -------------------------------------------------------//
 let pathElem = document.getElementsByTagName('path');
 let currentCountry;
 const questionBox = document.getElementById('questionBox');
 let score = 0;
 let music = new Audio('./sound/music.mp3');
-music.play();
-music.volume = 0.5;
+let currentUser;
 
-function handleEvent(event){
-  let target = event.target;
-  if (target.id === currentCountry.id){
-    target.setAttribute('class', 'countryGreen');
-    target.removeEventListener('click', handleEvent);
-    score++;
-    console.log(score);
-    let audioCorrect = new Audio('./sound/correct.wav');
-    audioCorrect.play();
-  } else if (target.id !== currentCountry.id){
-    for (let k = 0; k < pathElem.length; k++){
-      if (currentCountry.id === pathElem[k].id){
-        pathElem[k].setAttribute('class', 'countryRed');
-        pathElem[k].removeEventListener('click', handleEvent);
-        console.log(score);
-        let audioWrong = new Audio('./sound/wrong.mp3');
-        audioWrong.play();
-      }
-    }
-  }
-  pickCountry();
-}
-
-for (let i = 0; i < pathElem.length; i++){
-  pathElem[i].addEventListener('click', handleEvent);
-}
-
+// --------------------------------------------- Constructor Functions -------------------------------------------------------//
 function Country(name, id, image) {
   this.name = name;
   this.id = id;
@@ -42,13 +15,21 @@ function Country(name, id, image) {
   this.guesses = 3;
 }
 
+function User(name, score) {
+  this.name = name;
+  this.score = score;
+}
+
+// --------------------------------------------- Prototype Methods -------------------------------------------------------//
+Country.allCountries = [];
+Country.pickedCountries = [];
+User.leaderboard = [];
+
+// --------------------------------------------- Regular Functions -------------------------------------------------------//
 function newCountry(name, id, image) {
   let country = new Country(name, id, image);
   Country.allCountries.push(country);
 }
-
-Country.allCountries = [];
-Country.pickedCountries = [];
 
 function pickCountry() {
 
@@ -74,10 +55,61 @@ function pickCountry() {
 
     Country.pickedCountries.push(currentCountry.name);
   } else {
-    countryH2Elem.textContent = `No more countries left to guess! You guessed ${score} countries out of ${Country.allCountries.length}`;
+    countryH2Elem.textContent = `No more countries left to guess! You guessed ${currentUser.score} countries out of ${Country.allCountries.length}`;
+    saveUser();
     music.pause();
   }
 }
+
+function handleEvent(event){
+  let target = event.target;
+  if (target.id === currentCountry.id){
+    target.setAttribute('class', 'countryGreen');
+    target.removeEventListener('click', handleEvent);
+    currentUser.score++;
+    console.log(currentUser.score);
+    let audioCorrect = new Audio('./sound/correct.wav');
+    audioCorrect.play();
+  } else if (target.id !== currentCountry.id){
+    for (let k = 0; k < pathElem.length; k++){
+      if (currentCountry.id === pathElem[k].id){
+        pathElem[k].setAttribute('class', 'countryRed');
+        pathElem[k].removeEventListener('click', handleEvent);
+        console.log(currentUser.score);
+        let audioWrong = new Audio('./sound/wrong.mp3');
+        audioWrong.play();
+      }
+    }
+  }
+  pickCountry();
+}
+
+// load current user, show current score, 
+function loadUser() {
+  let newUser = localStorage.getItem('user');
+  let parsedUser = JSON.parse(newUser);
+  currentUser = new User(parsedUser.name, 0);
+  console.log(currentUser);
+  User.leaderboard.push(currentUser);
+}
+
+function saveUser() {
+  const stringifiedUsers = JSON.stringify(User.leaderboard);
+  localStorage.setItem('leaderboard', stringifiedUsers);
+}
+
+// function loadLeaderboard() {
+//   let newLeaderboard = localStorage.getItem('leaderboard');
+// }
+
+// --------------------------------------------- Event Listeners -------------------------------------------------------//
+for (let i = 0; i < pathElem.length; i++){
+  pathElem[i].addEventListener('click', handleEvent);
+}
+
+// --------------------------------------------- Functions Calls -------------------------------------------------------//
+music.play();
+music.volume = 0.5;
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
@@ -122,6 +154,7 @@ newCountry('Spain', 'ES', './images/Flags/spain.png');
 newCountry('France', 'FR', './images/Flags/france.png');
 newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
 
+loadUser();
 pickCountry();
 /* function getCountryId(value) {
   for (let i=0; i<pathElem.length; i++) {
@@ -130,3 +163,11 @@ pickCountry();
     }
   }
 } */
+
+// DONE: make user array, new user finishes round goes into another string
+//save to a new key after users complete the game
+  //DONE:create empty array
+  //DONE:when user object is created it is pushed into the array
+  // when game is finished, array of user objects is stringified and saved to local storage
+  //update leaderboard with array objects
+//load user object array key before starting the game

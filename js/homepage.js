@@ -13,7 +13,6 @@ const submit = document.createElement('button');
 
 const User = function(name) {
   this.name = name;
-  this.score = 0;
 }
 
 // --------------------------------------------- Prototype Methods -------------------------------------------------------//
@@ -49,13 +48,13 @@ function handleSubmit(event) {
     const newUser = new User(inputElem.value);
     console.log(newUser);
     updateStorageData(newUser);
-    window.location.href = "./game.html";
+    window.location.href = './game.html';
   }
 }
 
 function updateStorageData(user) {
   const stringifiedUser = JSON.stringify(user);
-  localStorage.setItem('user', stringifiedUser)
+  localStorage.setItem('user', stringifiedUser);
 }
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 
