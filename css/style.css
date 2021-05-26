@@ -16,6 +16,10 @@
   fill: lightskyblue;
 }
 
+.coutryYellow {
+  fill: rgb(237, 234, 19);
+}
+
 .countryGreen {
   fill: rgb(77, 209, 77);
 }
@@ -66,4 +70,17 @@
   align-content: center;
   width: 60%;
 }
+
+  /* Scoreboard */
+  #scoreboard {
+    width: 10%;
+    height: 30%;
+    border: 10px pink;
+    border-radius: 10px;
+    float: left;
+  }
+  
+  h3 {
+    color: pink;
+  }
 

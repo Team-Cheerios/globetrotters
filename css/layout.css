@@ -1,5 +1,5 @@
-/* HOME PAGE GRID */
-main {
+/*---------------------------HOME PAGE GRID--------------------------------*/
+#mainIndex {
   display: grid;
   grid-template-columns: 200px 600px 200px ;
   grid-template-rows: 3fr 2fr .2fr;
@@ -41,7 +41,7 @@ footer {
 
 
 
-/* HEADER HOME PAGE */
+/*----------------------------------HEADER HOME PAGE------------------------------*/
 header {
   display: flex;
   align-content: center;
@@ -88,8 +88,7 @@ li a {
 
 
 
-
-/* ABOUT ME PAGE */
+/*----------------------------------ABOUT ME PAGE--------------------------------*/
 #authors * {
   box-sizing: border-box;
 }
@@ -167,4 +166,8 @@ ul a {
   padding: 1em;
 }
 
+
+
+
+/*-------------------------------------GAME PAGE-------------------------------------*/
 
