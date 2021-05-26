@@ -5,7 +5,7 @@ let currentCountry;
 const questionBox = document.getElementById('questionBox');
 let score = 0;
 let music = new Audio('./sound/music.mp3');
-
+let currentUser;
 
 // --------------------------------------------- Constructor Functions -------------------------------------------------------//
 function Country(name, id, image) {
@@ -13,6 +13,12 @@ function Country(name, id, image) {
   this.id = id;
   this.image = image;
   this.guesses = 3;
+}
+
+function User(name) {
+  this.name = name;
+  this.score = 0;
+
 }
 
 // --------------------------------------------- Prototype Methods -------------------------------------------------------//
@@ -77,6 +83,14 @@ function handleEvent(event){
   pickCountry();
 }
 
+// load current user, show current score, 
+function loadUser() {
+  let newUser = localStorage.getItem('user');
+  let parsedUser = JSON.parse(newUser);
+  currentUser = new User(parsedUser);
+  console.log(currentUser);
+}
+
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 for (let i = 0; i < pathElem.length; i++){
   pathElem[i].addEventListener('click', handleEvent);
@@ -129,6 +143,7 @@ newCountry('Spain', 'ES', './images/Flags/spain.png');
 newCountry('France', 'FR', './images/Flags/france.png');
 newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
 
+loadUser();
 pickCountry();
 /* function getCountryId(value) {
   for (let i=0; i<pathElem.length; i++) {

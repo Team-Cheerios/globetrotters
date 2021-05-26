@@ -13,7 +13,6 @@ const submit = document.createElement('button');
 
 const User = function(name) {
   this.name = name;
-  this.score = 0;
 }
 
 // --------------------------------------------- Prototype Methods -------------------------------------------------------//
@@ -55,7 +54,7 @@ function handleSubmit(event) {
 
 function updateStorageData(user) {
   const stringifiedUser = JSON.stringify(user);
-  localStorage.setItem('user', stringifiedUser)
+  localStorage.setItem('user', stringifiedUser);
 }
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 
