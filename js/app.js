@@ -1,62 +1,38 @@
 'use strict';
 
 let pathElem = document.getElementsByTagName('path');
-console.log(pathElem);
 let currentCountry;
+const questionBox = document.getElementById('questionBox');
 let score = 0;
+let music = new Audio('./sound/music.mp3');
+music.play();
+music.volume = 0.5;
 
 function handleEvent(event){
-
-   let target = event.target;
-
-// get user's guess via event, that's our target
-// if the user's guess a.k.a. the target is equal to the correct answer, then we will loop through all of the paths looking for the one that matches currentCountry, and then turn that listener off.
-
-  /* for (let i = 0; i < pathElem.length; i++) {
-
-    if (pathElem[i].id == currentCountry.id) {
-      score += currentCountry.guesses;
-      pathElem[i].removeEventListener('click', handleEvent);
-      // pickCountry();
-    } else if (currentCountry.guesses ===0) {
-      let j = getCountryId(currentCountry.id);          
-      pathElem[j].removeEventListener('click', handleEvent);
-      pathElem[j].setAttribute('class', 'countryRed');
-    } else {
-      currentCountry.guesses--;
+  let target = event.target;
+  if (target.id === currentCountry.id){
+    target.setAttribute('class', 'countryGreen');
+    target.removeEventListener('click', handleEvent);
+    score++;
+    console.log(score);
+    let audioCorrect = new Audio('./sound/correct.wav');
+    audioCorrect.play();
+  } else if (target.id !== currentCountry.id){
+    for (let k = 0; k < pathElem.length; k++){
+      if (currentCountry.id === pathElem[k].id){
+        pathElem[k].setAttribute('class', 'countryRed');
+        pathElem[k].removeEventListener('click', handleEvent);
+        console.log(score);
+        let audioWrong = new Audio('./sound/wrong.mp3');
+        audioWrong.play();
+      }
     }
-
-    if (pathElem[i].hasAttribute('class')){
-      pathElem[i].removeAttribute('class');
-    } else {
-      pathElem[i].setAttribute('class', 'countryRed');
-    }
-  } */
-  for (let i = 0; i < pathElem.length; i++){
-    if (pathElem[i].id === currentCountry.id ){
-      pathElem[i].setAttribute('class', 'countryRed');
-      pathElem[i].removeEventListener('click', handleEvent);
-      score += currentCountry.guesses;
-      currentCountry.guesses = 0;
-      
-    } 
   }
-  if (currentCountry.guesses === 0){
-    pickCountry();
-  }
+  pickCountry();
 }
 
 for (let i = 0; i < pathElem.length; i++){
-
   pathElem[i].addEventListener('click', handleEvent);
-}
-
-function getCountryId(value) {
-  for (let i=0; i<pathElem.length; i++) {
-    if (pathElem[i].id == value) {
-      return i;
-    }
-  }
 }
 
 function Country(name, id, image) {
@@ -68,7 +44,6 @@ function Country(name, id, image) {
 
 function newCountry(name, id, image) {
   let country = new Country(name, id, image);
-
   Country.allCountries.push(country);
 }
 
@@ -76,23 +51,39 @@ Country.allCountries = [];
 Country.pickedCountries = [];
 
 function pickCountry() {
-  let k = Math.floor(Math.random()*Country.allCountries.length);
-  currentCountry = Country.allCountries[k];
-  console.log(k);
-  while (Country.pickedCountries.includes(currentCountry.name)) {
-    k = Math.floor(Math.random()*Country.allCountries.length);
+
+  questionBox.innerHTML = '';
+
+  let countryH2Elem = document.createElement('h2');
+  questionBox.appendChild(countryH2Elem);
+  if (Country.allCountries.length !== Country.pickedCountries.length){
+    let k = Math.floor(Math.random()*Country.allCountries.length);
     currentCountry = Country.allCountries[k];
-    console.log(k);
+
+    while (Country.pickedCountries.includes(currentCountry.name)) {
+      k = Math.floor(Math.random()*Country.allCountries.length);
+      currentCountry = Country.allCountries[k];
+    }
+    console.log(currentCountry.image);
+    countryH2Elem.textContent = currentCountry.name;
+
+    let flagImgElem = document.createElement('img');
+    flagImgElem.setAttribute('class', 'flagImg');
+    questionBox.appendChild(flagImgElem);
+    flagImgElem.setAttribute('src', `${currentCountry.image}`);
+
+    Country.pickedCountries.push(currentCountry.name);
+  } else {
+    countryH2Elem.textContent = `No more countries left to guess! You guessed ${score} countries out of ${Country.allCountries.length}`;
+    music.pause();
   }
-  console.log(currentCountry.name);
-  Country.pickedCountries.push(currentCountry.name);
 }
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
 newCountry('Austria', 'AT', './images/Flags/austria.png');
 newCountry('Belgium', 'BE', './images/Flags/belgium.png');
-newCountry('Bulgaria', 'BG', './images/Flags/bulgaria.png');
+newCountry('Bulgaria', 'BG', './images/Flags/bulgaria.svg');
 newCountry('Bosnia and Herzegovina', 'BA', './images/Flags/bosnia.png');
 newCountry('Belarus', 'BY', './images/Flags/belarus.png');
 newCountry('Switzerland', 'CH', './images/Flags/switzerland.png');
@@ -132,3 +123,10 @@ newCountry('France', 'FR', './images/Flags/france.png');
 newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
 
 pickCountry();
+/* function getCountryId(value) {
+  for (let i=0; i<pathElem.length; i++) {
+    if (pathElem[i].id == value) {
+      return i;
+    }
+  }
+} */
