@@ -1,12 +1,50 @@
 /* GAME MAP STYLING */
-path:hover {
+
+.countryRed {
+  fill: rgb(248, 80, 80);
+}
+
+#gameBody {
+  background-color: rgb(159, 183, 202);
+}
+
+.countryGray {
+  fill: #ececec;
+}
+
+.countryGray:hover {
   fill: lightskyblue;
 }
-.countryRed {
-  fill: red;
-}
-.countryRed:hover {
-  fill: rgb(253, 90, 90);
+
+.countryGreen {
+  fill: rgb(77, 209, 77);
 }
 
+#svg {
+  height: 958px;
+  width: 1400px;  
+} 
 
+#questionBox {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+  position: fixed;
+  top: 10vw;
+  right: 0;
+  font-size:calc(12px + 1.5vw);
+  border: 0.05em solid black;
+  min-width: 100px;
+  min-height: 50px;
+  width: 20vw;
+  padding: 0.2em;
+}
+
+.flagImg {
+  margin: 0.2em auto; 
+  width: 30%;
+  object-fit: contain;
+  border: 0.1em solid cadetblue;
+}

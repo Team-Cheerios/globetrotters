@@ -88,6 +88,7 @@ li a {
   background-image: linear-gradient(rgb(89, 228, 175), rgb(27, 124, 97));
   border-radius: 20px;
   line-height: 1.2em;
+  color: black;
 }
 
 #aboutUsH1 {  
