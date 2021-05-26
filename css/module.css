@@ -1,4 +1,18 @@
 #gridone h2 {
   text-align: center;
+  text-shadow: 3px 3px black;
   font-size: 5em;
+  position: absolute;
+  top: 200px; 
+  left: 0; 
+  width: 100%;
+}
+
+#gridone {
+  z-index: 3;
+}
+
+
+#introduction {
+  border: 2px solid black;
 }
