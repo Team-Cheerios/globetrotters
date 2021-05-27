@@ -13,18 +13,25 @@ header h2 {
 }
 
 #gridone {
-  z-index: 3;
+ /*  z-index: 3; */
   display: grid;
-  align-self: flex-end;
+  /* align-self: flex-end; */
 }
 
 
 #introduction {
-  position: relative;
+  
   border: 2px solid black;
   margin: 20px;
   padding: 10px;
   background-color: black;
   z-index: 5;
+  color: rgb(253, 251, 144);
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+  border-radius: 10px;
 }
 
+input {
+  margin: 1em;
+}
