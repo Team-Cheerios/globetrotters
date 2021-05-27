@@ -2,10 +2,11 @@
 
 body {
   background: rgb(24, 23, 23);
+  font-family: 'Mate SC', serif;
 }
 
 main {
-  background: radial-gradient(rgb(60,60,226),rgb(0, 0, 0));
+  /* background: radial-gradient(rgb(60,60,226),rgb(0, 0, 0)); */
   color: white;
 }
 
@@ -16,3 +17,58 @@ main {
   display: grid;
   align-self: center;
 }
+
+#username {
+  margin-top: 300px;
+}
+
+
+/* HOME PAGE FORM */
+/* 
+const userForm = document.getElementById('userForm');
+const pElem = document.getElementById('introduction');
+const buttonElem = document.getElementById('clickHere');
+const formElem = document.createElement('form');
+const labelElem = document.createElement('label');
+const inputElem = document.createElement('input');
+const submit = document.createElement('button'); */
+
+#clickHere {
+  color: blue;
+}
+
+form {
+  color: white;
+  font-family: 'Odibee Sans', cursive;
+  font-size: 2em;
+  text-shadow: black 2px 2px;
+}
+
+button {
+  color: blue;
+  background: white;
+  border: 2px solid blue;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  font-size: 22px;
+  font-family: 'Odibee Sans', cursive;
+}
+
+
+button:hover {
+  background-color: #555555;
+  color: white;
+}
+
+button:active {
+  background-color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input {
+  border: solid 3px black;
+}
+
+
+
