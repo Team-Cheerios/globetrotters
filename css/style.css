@@ -30,6 +30,9 @@
 
 #gameMap {
   width: 100%;
+  z-index: 0;
+  position: relative;
+  bottom: 200px;
 }
 
 #stickyBox {
@@ -38,6 +41,7 @@
   margin-left: auto;
   top: 5%;
   right: 2.5%;
+  z-index: 1;
 }
 
 #questionBox {
