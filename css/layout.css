@@ -55,6 +55,8 @@ header ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 h1, h2 {
@@ -82,7 +84,8 @@ li a {
   background: darkblue;
   color: white;
   text-decoration: none;
-  padding: 0.7em;
+  padding: 0.4em;
+  font-size: 28px;
 }
 
 

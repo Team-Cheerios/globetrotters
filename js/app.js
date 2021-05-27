@@ -129,10 +129,10 @@ for (let i = 0; i < pathElem.length; i++){
 }
 
 // --------------------------------------------- Functions Calls -------------------------------------------------------//
-music.play();
-music.volume = 0.5;
-music.loop = true
-music.muted = false
+// music.play();
+// music.volume = 0.5;
+// music.loop = true;
+// music.muted = false;
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
