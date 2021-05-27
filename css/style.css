@@ -1,4 +1,4 @@
-/* GAME MAP STYLING */
+/*----------------------------GAME MAP STYLING----------------------------*/
 
 .countryRed {
   fill: rgb(248, 80, 80);
@@ -25,7 +25,6 @@
 }
 
 #svg {
-  /* height: 958px; */
   width: 100%;
 } 
 
@@ -48,7 +47,6 @@
   min-height: 50px;
   width: 20vw;
   padding: 0.2em;
-  /* margin-right: 50px; */
   border-radius: 5px;
 }
 
@@ -61,7 +59,6 @@
 
 #guesser h2{
   font-size: 3em;
-  /* border: solid black 3px; */
 }
 
 #headerDiv {
@@ -71,7 +68,7 @@
   width: 60%;
 }
 
-  /* Scoreboard */
+  /*----------------------------------Scoreboard--------------------------------*/
   #scoreboard {
     width: 200px;
     height: 200px;
