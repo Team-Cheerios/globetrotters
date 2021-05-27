@@ -1,4 +1,4 @@
-/* GAME MAP STYLING */
+/*----------------------------GAME MAP STYLING----------------------------*/
 
 .countryRed {
   fill: rgb(248, 80, 80);
@@ -25,7 +25,6 @@
 }
 
 #svg {
-  /* height: 958px; */
   width: 100%;
 } 
 
@@ -48,8 +47,14 @@
   min-height: 50px;
   width: 20vw;
   padding: 0.2em;
-  /* margin-right: 50px; */
   border-radius: 5px;
+}
+
+#questionBox:hover {
+  -webkit-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
+  transition: 1s;
 }
 
 .flagImg {
@@ -61,7 +66,6 @@
 
 #guesser h2{
   font-size: 3em;
-  /* border: solid black 3px; */
 }
 
 #headerDiv {
@@ -71,12 +75,15 @@
   width: 60%;
 }
 
-  /* Scoreboard */
+  /*----------------------------------Scoreboard--------------------------------*/
   #scorebox {
     color: darkblue;
     font-size: 30px;
     font-family: 'Odibee Sans', cursive;
     text-align: center;
+    
+  #scoreboard {
+    display: flex;
     width: 200px;
     height: 500px;
     background-color: rgba(233, 233, 233, 0.276);
