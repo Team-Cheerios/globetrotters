@@ -9,7 +9,8 @@
 }
 
 header h2 {
-  color: rgb(89, 228, 175);
+  color:black;
+  text-shadow: 2px 2px 4px rgb(253, 251, 144);
 }
 
 #gridone {
@@ -23,6 +24,7 @@ header h2 {
   
   border: 2px solid black;
   margin: 20px;
+  Margin-top: 200px;
   padding: 10px;
   background-color: black;
   z-index: 5;

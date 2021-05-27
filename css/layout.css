@@ -2,7 +2,7 @@
 #mainIndex {
   display: grid;
   grid-template-columns: 200px 600px 200px ;
-  grid-template-rows: 2.3fr 0.8fr 0.2fr;
+  grid-template-rows: 2.3fr 0fr 0.2fr;
   width: 1000px;
   margin: 0 auto;
 }
@@ -16,7 +16,7 @@
 #gridone img {
   display: grid;
   align-self: flex-start;
-  width: 1000px;
+  width: 950px;
   height: 90%;
   border-radius: 3px;
   margin: 0 auto;
@@ -26,14 +26,14 @@
 #second {
   display: grid;
   justify-items: center;
-  grid-row: 2 / 3;
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
 }
 
 footer {
   display: grid;
   justify-items: center;
-  align-self: end;
+  align-self:center;
   grid-column: 1 / 4;
   grid-row: 3 / 4;
 }
@@ -75,6 +75,10 @@ header h2 {
   margin-bottom: 5px;
 }
 
+#guesser h2 {
+font-family: 'Odibee Sans', cursive;;
+}
+
 li a {
   border: 2px solid black;
   margin: 5px;
@@ -101,7 +105,7 @@ li a {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(rgb(89, 228, 175), rgb(27, 124, 97));
+  background-image: linear-gradientrgb(60,60,226),rgb(0, 0, 0);
   border-radius: 20px;
   line-height: 1.2em;
   padding: 50px;
@@ -110,9 +114,11 @@ li a {
 
 #aboutUsH1 {  
   text-align: center;
-  font-size: 3em;
+  font-size: 4em;
   padding: 10px;
+  color: antiquewhite;
   margin-bottom: 20px;
+  font-family: 'Odibee Sans', cursive;
 }
 
 .about {
@@ -132,7 +138,14 @@ ul a {
   object-fit: contain;
   margin: 1em;
   border-radius: 50%;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count:initial;
+  -webkit-animation-timing-function: linear;
 }
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .description {
   display: flex;
