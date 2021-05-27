@@ -1,4 +1,4 @@
-/* GAME MAP STYLING */
+/*----------------------------GAME MAP STYLING----------------------------*/
 
 .countryRed {
   fill: rgb(248, 80, 80);
@@ -25,12 +25,23 @@
 }
 
 #svg {
-  /* height: 958px; */
   width: 100%;
 } 
 
 #gameMap {
   width: 100%;
+  z-index: 0;
+  position: relative;
+  bottom: 200px;
+}
+
+#stickyBox {
+  position: sticky;
+  margin-right: 5%;
+  margin-left: auto;
+  top: 5%;
+  right: 2.5%;
+  z-index: 1;
 }
 
 #questionBox {
@@ -39,17 +50,33 @@
   align-content: center;
   justify-content: center;
   background-color: white;
-  position: fixed;
-  top: 10vw;
-  right: 1vw;
+  position: sticky;
+  top: 2vw;
+  right: 0;
   font-size:calc(12px + 1.5vw);
   border: 0.05em solid black;
   min-width: 100px;
   min-height: 50px;
   width: 20vw;
   padding: 0.2em;
-  /* margin-right: 50px; */
   border-radius: 5px;
+  margin-right: 5%;
+  margin-left: auto;
+}
+
+#questionBox:hover {
+  -webkit-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
+  transition: 1s;
+}
+
+#questionBox>h4 {
+  font-size: 1em;
+}
+
+#questionBox>p {
+  font-size: .5em;
 }
 
 .flagImg {
@@ -59,9 +86,24 @@
   border: 0.1em solid cadetblue;
 }
 
+#music {
+  position: sticky;
+  margin-right: 5%;
+  margin-left: auto;
+  bottom: 0;
+  right: 0;
+  width: 3vw;
+  height: 3vw;
+}
+
+#music img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+}
+
 #guesser h2{
   font-size: 3em;
-  /* border: solid black 3px; */
 }
 
 #headerDiv {
@@ -71,17 +113,26 @@
   width: 60%;
 }
 
-  /* Scoreboard */
-  #scoreboard {
-    width: 10%;
-    height: 30%;
-    background-color: rgba(233, 233, 233, 0.35);
-    border: 5px rgb(104, 102, 102);
+  /*----------------------------------Scoreboard--------------------------------*/
+  #scorebox {
+    color: darkblue;
+    font-size: 30px;
+    font-family: 'Odibee Sans', cursive;
+    /* text-align: center; */
+    /* display: flex; */
+    width: 150px;
+    height: 500px;
+    background-color: rgba(233, 233, 233, 0.276);
+    overflow-y: auto;
     border-radius: 10px;
-    float: left;
-    position: absolute;
+    position: fixed;
+    padding: 15px;
+    top: 30vw;
+    left: 2vw;
   }
   
   h3 {
-    color: rgb(255, 255, 255);
+    color: darkblue;
+    background-color: rgba(211, 210, 210, 0.851);
+    
   }
