@@ -76,7 +76,7 @@ header h2 {
 }
 
 #guesser h2 {
-font-family: 'Odibee Sans', cursive;;
+font-family: 'Odibee Sans', cursive;
 }
 
 li a {
@@ -105,7 +105,6 @@ li a {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradientrgb(60,60,226),rgb(0, 0, 0);
   border-radius: 20px;
   line-height: 1.2em;
   padding: 50px;

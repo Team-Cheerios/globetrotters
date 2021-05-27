@@ -24,7 +24,7 @@ function renderForm() {
   userForm.appendChild(formElem);
 
   labelElem.setAttribute('for', 'username');
-  labelElem.innerText = "Name";
+  labelElem.innerText = "Enter Name:";
   formElem.appendChild(labelElem);
 
   inputElem.setAttribute('id', 'username');

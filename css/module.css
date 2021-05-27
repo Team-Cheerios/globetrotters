@@ -9,7 +9,7 @@
 }
 
 header h2 {
-  color:black;
+  color: white;
   text-shadow: 2px 2px 4px rgb(253, 251, 144);
 }
 
@@ -32,6 +32,7 @@ header h2 {
   font-size: 1.1em;
   letter-spacing: 0.1em;
   border-radius: 10px;
+  box-shadow: rgb(253, 251, 144) 5px 5px;
 }
 
 input {
