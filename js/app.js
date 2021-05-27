@@ -89,11 +89,21 @@ function handleEvent(event){
 function renderLeaderboard() {
   leaderboardDiv.innerHTML = ''
   const scoreHeader = document.createElement('h3')
-  scoreHeader.textContent = 'Your Score'
+  scoreHeader.textContent = `Your Score ${currentUser.score}`
   leaderboardDiv.appendChild(scoreHeader)
-  const userScore = document.createElement('p');
-  userScore.textContent = currentUser.score;
-  leaderboardDiv.appendChild(userScore);
+
+  // const userScore = document.createElement('p');
+  // userScore.textContent = currentUser.score;
+  // leaderboardDiv.appendChild(userScore);
+
+  const leaderboardOl = document.createElement('ol');
+  leaderboardDiv.appendChild(leaderboardOl);
+
+  for (let i=0; i<User.leaderboard.length-1; i++) {
+    const scoreLi = document.createElement('li');
+    scoreLi.textContent = `${User.leaderboard[i].name}: ${User.leaderboard[i].score}`;
+    leaderboardOl.appendChild(scoreLi);
+  }
 }
 
 
