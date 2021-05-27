@@ -71,6 +71,7 @@ function handleEvent(event){
     console.log(currentUser.score);
     let audioCorrect = new Audio('./sound/correct.wav');
     audioCorrect.play();
+    renderLeaderboard()
   } else if (target.id !== currentCountry.id){
     for (let k = 0; k < pathElem.length; k++){
       if (currentCountry.id === pathElem[k].id){
@@ -86,6 +87,10 @@ function handleEvent(event){
 }
 
 function renderLeaderboard() {
+  leaderboardDiv.innerHTML = ''
+  const scoreHeader = document.createElement('h3')
+  scoreHeader.textContent = 'Your Score'
+  leaderboardDiv.appendChild(scoreHeader)
   const userScore = document.createElement('p');
   userScore.textContent = currentUser.score;
   leaderboardDiv.appendChild(userScore);
