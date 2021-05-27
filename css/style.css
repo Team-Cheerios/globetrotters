@@ -30,6 +30,18 @@
 
 #gameMap {
   width: 100%;
+  z-index: 0;
+  position: relative;
+  bottom: 200px;
+}
+
+#stickyBox {
+  position: sticky;
+  margin-right: 5%;
+  margin-left: auto;
+  top: 5%;
+  right: 2.5%;
+  z-index: 1;
 }
 
 #questionBox {
@@ -38,9 +50,9 @@
   align-content: center;
   justify-content: center;
   background-color: white;
-  position: fixed;
-  top: 15vw;
-  right: 1vw;
+  position: sticky;
+  top: 2vw;
+  right: 0;
   font-size:calc(12px + 1.5vw);
   border: 0.05em solid black;
   min-width: 100px;
@@ -48,6 +60,8 @@
   width: 20vw;
   padding: 0.2em;
   border-radius: 5px;
+  margin-right: 5%;
+  margin-left: auto;
 }
 
 #questionBox:hover {
@@ -55,6 +69,14 @@
   -ms-transform: scale(0.6);
   transform: scale(0.6);
   transition: 1s;
+}
+
+#questionBox>h4 {
+  font-size: 1em;
+}
+
+#questionBox>p {
+  font-size: .5em;
 }
 
 .flagImg {
@@ -65,9 +87,11 @@
 }
 
 #music {
-  position: fixed;
-  top: 12vw;
-  right: 1vw;
+  position: sticky;
+  margin-right: 5%;
+  margin-left: auto;
+  bottom: 0;
+  right: 0;
   width: 3vw;
   height: 3vw;
 }
