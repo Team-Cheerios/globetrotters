@@ -64,6 +64,20 @@
   border: 0.1em solid cadetblue;
 }
 
+#music {
+  position: fixed;
+  top: 12vw;
+  right: 1vw;
+  width: 3vw;
+  height: 3vw;
+}
+
+#music img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+}
+
 #guesser h2{
   font-size: 3em;
 }
