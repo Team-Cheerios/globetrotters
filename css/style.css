@@ -76,17 +76,27 @@
 }
 
   /*----------------------------------Scoreboard--------------------------------*/
+  #scorebox {
+    color: darkblue;
+    font-size: 30px;
+    font-family: 'Odibee Sans', cursive;
+    text-align: center;
+    
   #scoreboard {
     display: flex;
     width: 200px;
-    height: 200px;
-    background-color: rgba(233, 233, 233, 0.35);
-    border: 5px rgb(104, 102, 102);
+    height: 500px;
+    background-color: rgba(233, 233, 233, 0.276);
+    overflow-y: auto;
     border-radius: 10px;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    padding: 0px;
+    top: 30vw;
+    left: 2vw;
   }
   
   h3 {
-    color: rgb(255, 255, 255);
+    color: darkblue;
+    background-color: rgba(211, 210, 210, 0.851);
+    
   }
