@@ -50,6 +50,13 @@
   border-radius: 5px;
 }
 
+#questionBox:hover {
+  -webkit-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
+  transition: 1s;
+}
+
 .flagImg {
   margin: 0.2em auto; 
   width: 30%;
