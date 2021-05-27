@@ -4,6 +4,7 @@ let pathElem = document.getElementsByTagName('path');
 let currentCountry;
 const questionBox = document.getElementById('questionBox');
 const leaderboardDiv = document.getElementById('scorebox');
+const musicDiv = document.getElementById('music');
 let score = 0;
 let music = new Audio('./sound/music.mp3');
 let currentUser;
@@ -92,10 +93,6 @@ function renderLeaderboard() {
   scoreHeader.textContent = `Your Score ${currentUser.score}`
   leaderboardDiv.appendChild(scoreHeader)
 
-  // const userScore = document.createElement('p');
-  // userScore.textContent = currentUser.score;
-  // leaderboardDiv.appendChild(userScore);
-
   const leaderboardOl = document.createElement('ol');
   leaderboardDiv.appendChild(leaderboardOl);
 
@@ -125,11 +122,6 @@ function loadLeaderboard() {
   let newLeaderboard = localStorage.getItem('leaderboard');
   if (newLeaderboard) {
     let parsedLeaderboard = JSON.parse(newLeaderboard);
-    // for (let user of parsedLeaderboard) {
-    //   new User(user.name, user.score);
-    //   User.leaderboard.push(user)
-    //   console.log(user);
-    // } 
     for (let user of parsedLeaderboard) {
       const newUser = new User(user.name, user.score);
         User.leaderboard.push(newUser);
@@ -138,16 +130,33 @@ function loadLeaderboard() {
   }
 }
 
+function mute() {
+  musicDiv.innerHTML = '';
+  if (music.volume === 0.5) {
+    music.volume = 0;
+    const musicMuted = document.createElement('img');
+    musicMuted.setAttribute('src', './images/mute.png');
+    musicDiv.appendChild(musicMuted);
+  } else {
+    music.volume = 0.5;
+    const musicUnmuted = document.createElement('img');
+    musicUnmuted.setAttribute('src', './images/unmute.png');
+    musicDiv.appendChild(musicUnmuted);
+  }
+}
+
 // --------------------------------------------- Event Listeners -------------------------------------------------------//
 for (let i = 0; i < pathElem.length; i++){
   pathElem[i].addEventListener('click', handleEvent);
 }
 
+musicDiv.addEventListener('click', mute)
+
 // --------------------------------------------- Functions Calls -------------------------------------------------------//
-// music.play();
-// music.volume = 0.5;
-// music.loop = true;
-// music.muted = false;
+music.play();
+music.volume = 0.5;
+music.loop = true;
+music.muted = false;
 
 newCountry('Albania', 'AL', './images/Flags/albania.png');
 newCountry('Armenia', 'AM', './images/Flags/armenia.png');
@@ -195,13 +204,7 @@ newCountry('Cyprus', 'CY', './images/Flags/cyprus.png');
 loadLeaderboard();
 loadUser();
 pickCountry();
-/* function getCountryId(value) {
-  for (let i=0; i<pathElem.length; i++) {
-    if (pathElem[i].id == value) {
-      return i;
-    }
-  }
-} */
+renderLeaderboard();
 
 // DONE: make user array, new user finishes round goes into another string
 //save to a new key after users complete the game
